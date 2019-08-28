@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.rahmatharyadi.mydicodingapp.adapter.CardViewHeroAdapter;
 import com.rahmatharyadi.mydicodingapp.adapter.GridHeroAdapter;
@@ -73,18 +74,39 @@ public class MainActivity extends AppCompatActivity {
         rvHeroes.setLayoutManager(new LinearLayoutManager(this));
         ListHeroAdapter listHeroAdapter = new ListHeroAdapter(list);
         rvHeroes.setAdapter(listHeroAdapter);
+
+//        listHeroAdapter.setOnItemClickCallback(new ListHeroAdapter.OnItemClickCallback() {
+//            @Override
+//            public void onItemClicked(Hero data) {
+//                showSelectedHero(data);
+//            }
+//        });
     }
 
     private void showRecyclerGrid() {
         rvHeroes.setLayoutManager(new GridLayoutManager(this, 2));
         GridHeroAdapter gridHeroAdapter = new GridHeroAdapter(list);
         rvHeroes.setAdapter(gridHeroAdapter);
+
+//        gridHeroAdapter.setOnItemClickCallback(new ListHeroAdapter.OnItemClickCallback() {
+//            @Override
+//            public void onItemClicked(Hero data) {
+//                showSelectedHero(data);
+//            }
+//        });
     }
 
     private void showRecyclerCardView() {
         rvHeroes.setLayoutManager(new LinearLayoutManager(this));
         CardViewHeroAdapter cardViewHeroAdapter = new CardViewHeroAdapter(list);
         rvHeroes.setAdapter(cardViewHeroAdapter);
+
+//        cardViewHeroAdapter.setOnItemClickCallback(new ListHeroAdapter.OnItemClickCallback() {
+//            @Override
+//            public void onItemClicked(Hero data) {
+//                showSelectedHero(data);
+//            }
+//        });
     }
 
     private void setActionBarTitle(String title) {
@@ -94,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
 //        ActionBar actionBar = getSupportActionBar();
 //        actionBar.setTitle(title);
 //        actionBar.setDisplayShowHomeEnabled(true);
+    }
+
+    private void showSelectedHero(Hero hero) {
+        Toast.makeText(this, "Kamu memilih " + hero.getName()+" + "+ title, Toast.LENGTH_SHORT).show();
     }
 
 }
